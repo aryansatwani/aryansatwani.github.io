@@ -7,11 +7,36 @@
 
   $('#yr').textContent = new Date().getFullYear();
 
-  /* ---------- cursor glow ---------- */
+  /* ---------- memoji: transparent HEVC for Safari, VP9 WebM elsewhere ---------- */
+  const safari = /^((?!chrome|android|crios|fxios|edg).)*safari/i.test(navigator.userAgent);
+  if (!reduce) $$('[data-memoji]').forEach(box => {
+    const v = document.createElement('video');
+    Object.assign(v, { muted: true, defaultMuted: true, loop: true, playsInline: true, autoplay: true, preload: 'auto', disablePictureInPicture: true });
+    v.setAttribute('aria-hidden', 'true');
+    v.src = safari ? 'character/memoji-hevc.mov' : 'character/memoji.webm';
+    v.addEventListener('playing', () => box.classList.add('playing'), { once: true });
+    box.appendChild(v);
+    v.play().catch(() => {});
+  });
+
+  /* ---------- cursor glow + memoji turns toward the cursor ---------- */
+  const heroMemoji = $('.hero .memoji');
   addEventListener('pointermove', e => {
     document.body.style.setProperty('--mx', e.clientX + 'px');
     document.body.style.setProperty('--my', e.clientY + 'px');
+    if (!heroMemoji || reduce) return;
+    const r = heroMemoji.getBoundingClientRect();
+    const dx = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / (innerWidth / 2)));
+    const dy = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height / 2)) / (innerHeight / 2)));
+    heroMemoji.style.transform = `perspective(700px) rotateY(${dx * 22}deg) rotateX(${-dy * 14}deg) translate(${dx * 10}px, ${dy * 6}px)`;
   }, { passive: true });
+  // pause the loop while it's off-screen or the tab is hidden
+  const vids = () => $$('[data-memoji] video');
+  new IntersectionObserver(es => es.forEach(en => {
+    const v = en.target.querySelector('video');
+    if (v) en.isIntersecting && !document.hidden ? v.play().catch(() => {}) : v.pause();
+  })).observe($('.hero .memoji') || document.body);
+  document.addEventListener('visibilitychange', () => vids().forEach(v => document.hidden ? v.pause() : v.play().catch(() => {})));
 
   /* ---------- loader ---------- */
   const loader = $('#loader');
@@ -24,6 +49,7 @@
     pct.textContent = 100; bar.style.width = '100%';
     setTimeout(() => {
       loader.classList.add('done');
+      setTimeout(() => loader.querySelector('video')?.pause(), 800);
       document.body.classList.remove('loading');
       $$('.hero .split, .hero .blur-text').forEach(el => el.classList.add('in'));
       startDecrypt();

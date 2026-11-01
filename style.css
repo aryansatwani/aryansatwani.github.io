@@ -68,7 +68,12 @@ body::after {
 }
 #loader.done { opacity: 0; visibility: hidden; }
 .loader-inner { width: min(420px, 86vw); display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
-.loader-avatar { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--cyan), 0 0 40px rgba(34, 211, 238, .35); animation: rise .8s forwards; }
+.loader-avatar.memoji { width: 200px; animation: rise .8s forwards; }
+.memoji { position: relative; z-index: 2; width: 62%; aspect-ratio: 4 / 3; filter: drop-shadow(0 16px 30px rgba(0, 0, 0, .5)); transition: transform .35s cubic-bezier(.2, .8, .2, 1); will-change: transform; }
+.memoji img, .memoji video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; transition: opacity .4s; }
+.memoji video { opacity: 0; }
+.memoji.playing video { opacity: 1; }
+.memoji.playing img { opacity: 0; }
 .loader-hi { font-size: clamp(22px, 5vw, 30px); font-weight: 600; letter-spacing: -.01em; opacity: 0; animation: rise .8s .3s forwards; }
 .loader-q { color: var(--cyan); font-size: 13px; opacity: .85; }
 .loader-bar { width: 100%; height: 3px; background: var(--line); border-radius: 3px; overflow: hidden; }
