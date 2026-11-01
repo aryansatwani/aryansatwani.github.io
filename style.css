@@ -310,7 +310,8 @@ section { padding: clamp(80px, 12vh, 140px) var(--pad); max-width: 1320px; margi
 .proj-meta { font-size: 11.5px; color: var(--cyan); }
 .proj h3 { margin: 6px 0 8px; font-size: 21px; line-height: 1.25; }
 .proj p { margin: 0 0 14px; color: var(--muted); font-size: 15px; flex: 1; }
-.proj-link { margin-top: 14px; font-size: 13px; color: var(--cyan-2); align-self: flex-start; border-bottom: 1px dashed var(--cyan-2); }
+.proj-link { margin-top: 10px; font-size: 13px; color: var(--cyan-2); align-self: flex-start; padding: 10px 14px; margin-left: -14px; border-radius: 999px; text-decoration: underline dashed; text-underline-offset: 4px; transition: background .2s; }
+.proj-link:hover { background: rgba(34, 211, 238, .1); }
 
 /* project chart marks */
 .cv-line { fill: none; stroke: var(--cyan); stroke-width: 2; vector-effect: non-scaling-stroke; }

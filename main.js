@@ -9,7 +9,8 @@
 
   /* ---------- memoji: transparent HEVC for Safari, VP9 WebM elsewhere ---------- */
   const safari = /^((?!chrome|android|crios|fxios|edg).)*safari/i.test(navigator.userAgent);
-  if (!reduce) $$('[data-memoji]').forEach(box => {
+  // only the hero gets the video (the loader keeps its poster), and only after the intro, so it never competes with first paint
+  const startMemoji = () => !reduce && $$('.hero [data-memoji]').forEach(box => {
     const v = document.createElement('video');
     Object.assign(v, { muted: true, defaultMuted: true, loop: true, playsInline: true, autoplay: true, preload: 'auto', disablePictureInPicture: true });
     v.setAttribute('aria-hidden', 'true');
@@ -49,7 +50,7 @@
     pct.textContent = 100; bar.style.width = '100%';
     setTimeout(() => {
       loader.classList.add('done');
-      setTimeout(() => loader.querySelector('video')?.pause(), 800);
+      startMemoji();
       document.body.classList.remove('loading');
       $$('.hero .split, .hero .blur-text').forEach(el => el.classList.add('in'));
       startDecrypt();
