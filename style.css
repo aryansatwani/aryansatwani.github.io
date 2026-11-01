@@ -105,6 +105,8 @@ body::after {
 .nav nav { display: flex; gap: 6px; align-items: center; }
 .nav nav a { font-family: var(--mono); font-size: 13px; color: var(--muted); padding: 7px 12px; border-radius: 999px; transition: color .2s, background .2s; }
 .nav nav a:hover, .nav nav a.active { color: var(--text); background: rgba(148, 163, 184, .08); }
+.nav nav a.nav-cv { color: var(--cyan-2); border: 1px solid rgba(34, 211, 238, .45); }
+.nav nav a.nav-cv:hover { background: rgba(34, 211, 238, .12); color: var(--text); }
 .nav nav a.nav-cta { color: var(--bg); background: var(--cyan); }
 .nav nav a.nav-cta:hover { background: var(--cyan-2); color: var(--bg); }
 
@@ -352,7 +354,7 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10
   .gallery { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 860px) {
-  .nav nav a:not(.nav-cta) { display: none; }
+  .nav nav a:not(.nav-cta):not(.nav-cv) { display: none; }
   .hero { grid-template-columns: minmax(0, 1fr); padding-top: 110px; text-align: left; }
   .hero > * { min-width: 0; }
   .avatar-stage { width: min(320px, 74vw); order: -1; margin-top: 10px; }
