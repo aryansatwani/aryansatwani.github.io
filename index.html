@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aryan Satwani · Data Analyst</title>
+<meta name="description" content="Aryan Satwani is a data analyst in Dubai who builds BI dashboards, ML models and analytics that drive decisions.">
+<meta property="og:title" content="Aryan Satwani · Data Analyst">
+<meta property="og:description" content="I turn raw data into decisions. BI dashboards, analytics and ML.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2307090f'/><rect x='7' y='16' width='4' height='9' rx='1' fill='%2322d3ee'/><rect x='14' y='10' width='4' height='15' rx='1' fill='%2367e8f9'/><rect x='21' y='6' width='4' height='19' rx='1' fill='%23a78bfa'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <div class="loader-avatar avatar-slot"></div>
+    <div class="loader-hi">Hi, welcome to my portfolio</div>
+    <div class="mono loader-q">&gt; SELECT * FROM aryan_satwani;</div>
+    <div class="loader-bar"><span></span></div>
+    <div class="mono loader-pct"><span id="loadPct">0</span>% rows fetched</div>
+    <button class="mono loader-skip" type="button">press any key to skip</button>
+  </div>
+</div>
+
+<template id="avatarTpl">
+<svg class="avatar" viewBox="0 0 400 440" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9a07c"/><stop offset="1" stop-color="#c0835f"/></linearGradient>
+    <linearGradient id="hair" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a2a22"/><stop offset="1" stop-color="#1c1411"/></linearGradient>
+    <linearGradient id="blazer" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2557b8"/><stop offset="1" stop-color="#173a80"/></linearGradient>
+    <pattern id="check" width="7" height="7" patternUnits="userSpaceOnUse"><rect width="7" height="7" fill="url(#blazer)"/><path d="M0 3.5H7M3.5 0V7" stroke="#0e2a63" stroke-width="1.2" opacity=".55"/></pattern>
+    <radialGradient id="blush" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#e0786a" stop-opacity=".45"/><stop offset="1" stop-color="#e0786a" stop-opacity="0"/></radialGradient>
+  </defs>
+  <!-- body -->
+  <path d="M60 440 C64 380 110 352 170 342 L230 342 C290 352 336 380 340 440 Z" fill="url(#check)"/>
+  <path d="M170 342 L200 420 L230 342 Z" fill="#f4f4f2"/>
+  <path d="M170 342 L186 384 L162 366 Z M230 342 L214 384 L238 366 Z" fill="#e3e3df"/>
+  <path d="M150 348 L200 440 L176 440 L132 360 Z M250 348 L200 440 L224 440 L268 360 Z" fill="#1a4596"/>
+  <!-- neck -->
+  <path d="M172 300 L172 346 Q200 362 228 346 L228 300 Z" fill="#b97a57"/>
+  <!-- ears -->
+  <ellipse cx="111" cy="214" rx="15" ry="24" fill="#c98a65"/>
+  <ellipse cx="289" cy="214" rx="15" ry="24" fill="#c98a65"/>
+  <!-- head -->
+  <path d="M112 196 C112 128 150 96 200 96 C250 96 288 128 288 196 C288 262 256 318 200 322 C144 318 112 262 112 196 Z" fill="url(#skin)"/>
+  <!-- stubble -->
+  <path d="M142 262 C156 306 180 320 200 320 C220 320 244 306 258 262 C246 290 226 300 200 300 C174 300 154 290 142 262 Z" fill="#3a2a22" opacity=".22"/>
+  <!-- hair -->
+  <path class="hair" d="M106 206 C96 150 112 104 150 84 C170 52 214 40 252 56 C292 66 312 104 300 150 C298 172 296 190 292 206 C290 176 282 156 268 142 C262 150 240 152 222 144 C200 152 166 148 150 138 C130 150 116 174 112 204 Z" fill="url(#hair)"/>
+  <path d="M160 82 C186 58 236 54 266 74 C238 66 204 70 178 88 Z" fill="#5a4234" opacity=".7"/>
+  <!-- brows -->
+  <path d="M138 172 C150 160 170 158 186 166 L184 174 C168 170 152 172 140 178 Z" fill="#241913"/>
+  <path d="M262 172 C250 160 230 158 214 166 L216 174 C232 170 248 172 260 178 Z" fill="#241913"/>
+  <!-- eyes -->
+  <g class="eye eye-l"><ellipse cx="162" cy="198" rx="17" ry="12" fill="#fff"/><g class="iris"><circle cx="162" cy="198" r="8.5" fill="#4a2c1d"/><circle cx="162" cy="198" r="4" fill="#120b08"/><circle cx="165" cy="195" r="2.2" fill="#fff"/></g></g>
+  <g class="eye eye-r"><ellipse cx="238" cy="198" rx="17" ry="12" fill="#fff"/><g class="iris"><circle cx="238" cy="198" r="8.5" fill="#4a2c1d"/><circle cx="238" cy="198" r="4" fill="#120b08"/><circle cx="241" cy="195" r="2.2" fill="#fff"/></g></g>
+  <!-- nose -->
+  <path d="M200 204 C196 226 188 240 192 246 C196 250 206 250 210 246" fill="none" stroke="#a5694a" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- cheeks -->
+  <ellipse cx="146" cy="246" rx="20" ry="12" fill="url(#blush)"/>
+  <ellipse cx="254" cy="246" rx="20" ry="12" fill="url(#blush)"/>
+  <!-- smile -->
+  <path d="M158 262 Q200 314 242 262 Q200 276 158 262 Z" fill="#6b2a22"/>
+  <path d="M164 264 Q200 274 236 264 Q234 274 228 278 Q200 284 172 278 Q166 274 164 264 Z" fill="#fbf6ea"/>
+  <path d="M158 262 Q200 276 242 262" fill="none" stroke="#8a4a36" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- waving hand -->
+  <g class="wave">
+    <path d="M318 440 C318 400 322 372 330 352 L360 360 C356 384 352 410 352 440 Z" fill="url(#check)"/>
+    <rect x="326" y="342" width="38" height="14" rx="5" fill="#f4f4f2" transform="rotate(10 345 349)"/>
+    <g fill="#d39a76">
+      <rect x="326" y="298" width="42" height="50" rx="16"/>
+      <rect x="326" y="262" width="10" height="44" rx="5"/>
+      <rect x="338" y="254" width="10" height="50" rx="5"/>
+      <rect x="350" y="258" width="10" height="46" rx="5"/>
+      <rect x="361" y="270" width="9" height="36" rx="4.5"/>
+      <rect x="306" y="306" width="30" height="11" rx="5.5" transform="rotate(-35 320 312)"/>
+    </g>
+  </g>
+</svg>
+</template>
+
+<canvas id="scene" aria-hidden="true"></canvas>
+<canvas id="sparks" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav">
+  <a href="#top" class="logo mono">aryan<span>.</span>data</a>
+  <nav>
+    <a href="#about">about</a>
+    <a href="#experience">experience</a>
+    <a href="#builds">builds</a>
+    <a href="#projects">projects</a>
+    <a href="#skills">skills</a>
+    <a href="#contact" class="nav-cta">contact</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="mono tag"><span class="dot"></span> data analyst · dubai, uae</p>
+      <h1 class="split" data-split>Aryan Satwani</h1>
+      <p class="hero-role mono">
+        <span class="muted">role =</span> "<span id="decrypt" class="accent">Data Analyst</span>"
+      </p>
+      <p class="hero-lede blur-text">I turn raw data into decisions: BI dashboards, automated reporting and machine learning that move business numbers.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary magnet">View projects <span aria-hidden="true">→</span></a>
+        <a href="#contact" class="btn btn-ghost magnet">Get in touch</a>
+      </div>
+    </div>
+
+    <div class="avatar-stage" aria-hidden="true">
+      <div class="orbit o1"><span class="mono">SQL</span><span class="mono">Python</span><span class="mono">Power BI</span></div>
+      <div class="orbit o2"><span class="mono">Tableau</span><span class="mono">ML</span><span class="mono">DAX</span><span class="mono">Qlik</span></div>
+      <div class="avatar-glow"></div>
+      <div class="avatar-slot"></div>
+      <div class="float-chip c1 mono">▲ 30% revenue</div>
+      <div class="float-chip c2 mono">r² = 0.94</div>
+      <div class="float-chip c3 mono">p &lt; 0.05 ✓</div>
+    </div>
+  </section>
+
+  <section class="query-wrap">
+    <aside class="query-card mono reveal" aria-label="Career summary as a SQL query">
+      <div class="qc-head"><span></span><span></span><span></span><em>career.sql</em></div>
+<pre><code><span class="k">SELECT</span> role, company, impact
+<span class="k">FROM</span>   career
+<span class="k">WHERE</span>  passion = <span class="s">'data'</span>
+<span class="k">ORDER BY</span> impact <span class="k">DESC</span>;</code></pre>
+      <table>
+        <thead><tr><th>role</th><th>company</th><th>impact</th></tr></thead>
+        <tbody>
+          <tr><td>Assoc. Data Analyst</td><td>Udrive</td><td class="up">+30% rev</td></tr>
+          <tr><td>Data Analytics Intern</td><td>MSD GCC</td><td class="up">−30% time</td></tr>
+          <tr><td>CX Analyst Intern</td><td>LuLu Exchange</td><td class="up">5+ gaps</td></tr>
+        </tbody>
+      </table>
+      <div class="qc-foot">3 rows · 0.012s</div>
+    </aside>
+  </section>
+
+  <!-- KPI STRIP -->
+  <section id="kpis" class="kpis">
+    <div class="section-label mono">// key metrics</div>
+    <div class="kpi-grid">
+      <div class="kpi spotlight reveal">
+        <div class="kpi-top mono">fleet_revenue <span class="delta">▲</span></div>
+        <div class="kpi-val"><span class="count" data-to="30">0</span>%</div>
+        <div class="kpi-sub">revenue growth over 12 months at Udrive</div>
+        <svg class="spark" data-series="10,12,11,14,15,17,16,19,21,22,24,26" viewBox="0 0 120 32" preserveAspectRatio="none"></svg>
+      </div>
+      <div class="kpi spotlight reveal">
+        <div class="kpi-top mono">conversion_rate <span class="delta">▲</span></div>
+        <div class="kpi-val"><span class="count" data-to="12">0</span>%</div>
+        <div class="kpi-sub">uplift from registration to first trip</div>
+        <svg class="spark" data-series="8,9,9,10,9,11,12,12,13,14,14,15" viewBox="0 0 120 32" preserveAspectRatio="none"></svg>
+      </div>
+      <div class="kpi spotlight reveal">
+        <div class="kpi-top mono">reporting_time <span class="delta down">▼</span></div>
+        <div class="kpi-val"><span class="count" data-to="30">0</span>%</div>
+        <div class="kpi-sub">cut through automated workflows at MSD</div>
+        <svg class="spark" data-series="26,25,25,23,22,21,19,18,17,16,15,14" viewBox="0 0 120 32" preserveAspectRatio="none"></svg>
+      </div>
+      <div class="kpi spotlight reveal">
+        <div class="kpi-top mono">dashboards_shipped</div>
+        <div class="kpi-val"><span class="count" data-to="8">0</span>+</div>
+        <div class="kpi-sub">across <b>6</b> GCC markets</div>
+        <svg class="spark bars" data-series="3,5,4,6,7,5,8,6" viewBox="0 0 120 32" preserveAspectRatio="none"></svg>
+      </div>
+      <div class="kpi spotlight reveal">
+        <div class="kpi-top mono">cgpa</div>
+        <div class="kpi-val"><span class="count" data-to="9.01" data-decimals="2">0</span></div>
+        <div class="kpi-sub">B.E. Computer Science, BITS Pilani Dubai (Distinction)</div>
+        <svg class="spark" data-series="8.4,8.6,8.7,8.8,8.9,9.0,9.0,9.01" viewBox="0 0 120 32" preserveAspectRatio="none"></svg>
+      </div>
+      <div class="kpi spotlight reveal">
+        <div class="kpi-top mono">model_accuracy</div>
+        <div class="kpi-val"><span class="count" data-to="99">0</span>%</div>
+        <div class="kpi-sub">live cricket outcome prediction, presented at IEEE IS'24</div>
+        <svg class="spark" data-series="62,70,76,81,86,90,94,97,99" viewBox="0 0 120 32" preserveAspectRatio="none"></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <div class="section-label mono">// 01 · about</div>
+    <div class="about-grid">
+      <figure class="portrait tilt reveal">
+        <img src="img/aryan.jpg" alt="Portrait of Aryan Satwani" loading="lazy" width="825" height="1100">
+        <div class="bbox" aria-hidden="true"><span class="mono">person · 0.99</span></div>
+        <div class="scanline" aria-hidden="true"></div>
+        <figcaption class="mono">
+          <span>name: "Aryan Satwani"</span>
+          <span>loc: [25.20°N, 55.27°E]</span>
+          <span>status: <i class="ok">● available</i></span>
+        </figcaption>
+      </figure>
+      <div>
+        <h2 class="blur-text big-quote">“Data should be used not just to report the past, but to shape the future.”</h2>
+        <p class="about-p reveal">I'm a Computer Science graduate from <b>BITS Pilani, Dubai</b> (CGPA 9.01, Distinction), now working as an <b>Associate Data Analyst at Udrive</b>. I build Tableau and Power BI dashboards for operations, finance and customer-facing digital products, automate reporting workflows, and turn messy data into insights that change what teams do next.</p>
+        <p class="about-p reveal">I like building tools that make complex things simple and help people make better decisions, whether that's a clean dashboard, an ML model, or blockchain-based transparency tooling.</p>
+      </div>
+    </div>
+    <div class="principles">
+        <div class="principle spotlight tilt reveal">
+          <span class="mono p-idx">01</span>
+          <h3>Learning first</h3>
+          <p>Continuous learning is the only way to stay relevant in a fast-moving field.</p>
+        </div>
+        <div class="principle spotlight tilt reveal">
+          <span class="mono p-idx">02</span>
+          <h3>User-centred thinking</h3>
+          <p>Whether it's a dashboard or an ML model, I start with who uses it and what action it will drive.</p>
+        </div>
+        <div class="principle spotlight tilt reveal">
+          <span class="mono p-idx">03</span>
+          <h3>Innovation through iteration</h3>
+          <p>Build fast, test fast, learn fast, and change course when the data tells a better story.</p>
+        </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="experience">
+    <div class="section-label mono">// 02 · experience</div>
+    <h2 class="section-title split" data-split>Where I've shipped insights</h2>
+    <div class="timeline">
+      <div class="tl-line"><span class="tl-progress"></span></div>
+
+      <article class="tl-item reveal">
+        <div class="tl-node"></div>
+        <div class="tl-meta mono">sep 2025 → present</div>
+        <div class="tl-card spotlight">
+          <h3>Associate Data Analyst <span class="at">@ Udrive Rent-A-Car</span></h3>
+          <ul>
+            <li>Drove a <b>30% fleet revenue improvement</b> over 12 months through data-driven optimisation of fleet performance, placement and vehicle selection.</li>
+            <li>Analysed registration funnels, verification workflows and app performance with Marketing, Product and Tech, improving registration-to-trip conversion by <b>12%</b>.</li>
+            <li>Built a live Tableau cost-analysis dashboard, cutting manual reporting by <b>25%</b> and giving Ops and Finance real-time cost visibility.</li>
+            <li>Developed a customer-service call-analytics dashboard that enabled data-led investigations, improving productivity and CX by <b>15%</b>.</li>
+          </ul>
+          <div class="chips"><span>Tableau</span><span>SQL</span><span>Python</span><span>Power BI</span><span>Excel</span></div>
+        </div>
+      </article>
+
+      <article class="tl-item reveal">
+        <div class="tl-node"></div>
+        <div class="tl-meta mono">jan 2025 → jul 2025</div>
+        <div class="tl-card spotlight">
+          <h3>Data Analytics Intern <span class="at">@ MSD GCC</span></h3>
+          <ul>
+            <li>Developed <b>8+ dashboards</b> to optimise sales performance and forecasting across <b>6 GCC countries</b>.</li>
+            <li>Automated sales data workflows, reducing reporting time by <b>30%</b>.</li>
+            <li>Gathered requirements with regional teams, managed reporting backlogs and delivered data products supporting sales strategy.</li>
+          </ul>
+          <div class="chips"><span>Qlik</span><span>SQL</span><span>Power BI</span><span>Excel</span></div>
+        </div>
+      </article>
+
+      <article class="tl-item reveal">
+        <div class="tl-node"></div>
+        <div class="tl-meta mono">jun 2023 → aug 2023</div>
+        <div class="tl-card spotlight">
+          <h3>Customer Experience Analyst Intern <span class="at">@ LuLu International Exchange</span></h3>
+          <ul>
+            <li>Mapped user journeys across all <b>17 Dubai branches</b> using Google reviews and face-to-face surveys.</li>
+            <li>Built dashboards identifying <b>5+ CX gaps</b> that shaped product and ops improvements for the LuLu Money app.</li>
+          </ul>
+          <div class="chips"><span>Tableau</span><span>Excel</span><span>Pandas</span><span>BeautifulSoup</span></div>
+        </div>
+      </article>
+
+      <article class="tl-item reveal">
+        <div class="tl-node"></div>
+        <div class="tl-meta mono">aug 2021 → sep 2021</div>
+        <div class="tl-card spotlight">
+          <h3>Social Media Analytics Intern <span class="at">@ CoverCompared</span></h3>
+          <ul>
+            <li>Aggregated and analysed social media data to improve engagement and click-through rates across channels.</li>
+            <li>Ran A/B tests on content strategy, boosting engagement by <b>20%</b>.</li>
+          </ul>
+          <div class="chips"><span>Excel</span><span>Power BI</span><span>A/B testing</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- BUILDS -->
+  <section id="builds" class="builds">
+    <div class="section-label mono">// 03 · things i've built</div>
+    <h2 class="section-title split" data-split>Side projects, shipped</h2>
+    <p class="section-sub reveal">What I build in my spare time: full products that run on real data, mostly for the sports and travel I love.</p>
+
+    <article class="build build-xpert spotlight reveal">
+      <div class="build-copy">
+        <div class="proj-meta mono">live · flask · milp optimiser · 4 data sources</div>
+        <h3>XPERT <span class="muted">· fantasy sports engine</span></h3>
+        <p>A personal recommendation engine for <b>Fantasy Premier League</b>, <b>UCL Fantasy</b> and <b>F1 Fantasy</b>. It combines underlying stats from every competition into expected points per gameweek, then picks optimal transfers, captains and chip timing.</p>
+        <ul class="build-list">
+          <li><b>Modelling:</b> team ratings from npxG, player xG/xA rates, minutes projection, injury risk from acute:chronic workload, and return-to-form curves</li>
+          <li><b>Optimiser:</b> mixed-integer program (HiGHS) for squad, XI and captain over a multi-gameweek horizon, including −4 hits</li>
+          <li><b>Chip simulator:</b> Wildcard, Free Hit, Bench Boost and Triple Captain tested in every gameweek, adjusted for mini-league rivals</li>
+          <li><b>Insights:</b> colour-blind-safe charts with auto-written takeaways, manager tactical profiles and a 10-GW planner</li>
+          <li><b>Data:</b> official FPL API, Understat, FotMob and ESPN, self-hosted on an Oracle Cloud VM behind Caddy</li>
+        </ul>
+        <div class="chips"><span>Python</span><span>Flask</span><span>HiGHS / MILP</span><span>Pandas</span><span>Docker</span><span>Caddy</span></div>
+        <a class="btn btn-primary magnet" href="https://xpert-fantasy.duckdns.org" target="_blank" rel="noopener">Open XPERT ↗</a>
+      </div>
+      <div class="build-viz" aria-hidden="true">
+        <div class="pitch">
+          <svg viewBox="0 0 200 280" class="pitch-lines"><rect x="6" y="6" width="188" height="268" rx="4"/><line x1="6" y1="140" x2="194" y2="140"/><circle cx="100" cy="140" r="26"/><rect x="50" y="6" width="100" height="40"/><rect x="50" y="234" width="100" height="40"/></svg>
+          <div class="xp-player" style="--x:50%;--y:88%">GK<b>4.1</b></div>
+          <div class="xp-player" style="--x:18%;--y:68%">DEF<b>5.3</b></div>
+          <div class="xp-player" style="--x:39%;--y:70%">DEF<b>4.8</b></div>
+          <div class="xp-player" style="--x:61%;--y:70%">DEF<b>4.6</b></div>
+          <div class="xp-player" style="--x:82%;--y:68%">DEF<b>5.9</b></div>
+          <div class="xp-player" style="--x:25%;--y:45%">MID<b>6.2</b></div>
+          <div class="xp-player cap" style="--x:50%;--y:42%">MID<b>9.4</b></div>
+          <div class="xp-player" style="--x:75%;--y:45%">MID<b>7.1</b></div>
+          <div class="xp-player" style="--x:25%;--y:18%">FWD<b>6.7</b></div>
+          <div class="xp-player" style="--x:50%;--y:14%">FWD<b>7.8</b></div>
+          <div class="xp-player" style="--x:75%;--y:18%">MID<b>5.5</b></div>
+        </div>
+        <div class="xp-tag mono">xP per player · captain highlighted</div>
+      </div>
+    </article>
+
+    <article class="build build-atlas spotlight reveal">
+      <div class="build-viz" aria-hidden="true">
+        <svg class="globe-svg" viewBox="0 0 220 220">
+          <defs><radialGradient id="gg" cx="35%" cy="30%"><stop offset="0" stop-color="#a78bfa" stop-opacity=".35"/><stop offset="1" stop-color="#22d3ee" stop-opacity=".05"/></radialGradient></defs>
+          <circle cx="110" cy="110" r="96" fill="url(#gg)" stroke="currentColor" stroke-opacity=".35"/>
+          <g class="globe-meridians" fill="none" stroke="currentColor" stroke-opacity=".18">
+            <ellipse cx="110" cy="110" rx="96" ry="30"/><ellipse cx="110" cy="110" rx="96" ry="64"/>
+            <ellipse cx="110" cy="110" rx="30" ry="96"/><ellipse cx="110" cy="110" rx="64" ry="96"/><line x1="14" y1="110" x2="206" y2="110"/>
+          </g>
+          <path class="route" d="M70 120 Q 100 60 150 80 T 160 150" fill="none"/>
+          <circle class="pin" cx="70" cy="120" r="4"/><circle class="pin" cx="150" cy="80" r="4"/><circle class="pin" cx="160" cy="150" r="4"/>
+        </svg>
+        <div class="xp-tag mono">dubai → istanbul → tbilisi</div>
+      </div>
+      <div class="build-copy">
+        <div class="proj-meta mono">vanilla js · json datasets · travel</div>
+        <h3>Wayfarer Atlas <span class="muted">· go somewhere that fits</span></h3>
+        <p>A travel planner that recommends destinations that fit you. It checks which countries your passport opens up, estimates what a trip costs, and drafts a day-by-day itinerary around the bucket-list items you tick.</p>
+        <ul class="build-list">
+          <li><b>Visa engine:</b> "where your passport takes you", with visa rules per country</li>
+          <li><b>Bucket list → trip:</b> tick experiences and get multi-stop routes that cover them</li>
+          <li><b>Close to home:</b> staycation deals and nearby escapes</li>
+          <li><b>My atlas:</b> a personal travel log of the cities and countries you've visited</li>
+        </ul>
+        <div class="chips"><span>JavaScript</span><span>HTML/CSS</span><span>JSON data</span><span>GeoJSON</span></div>
+      </div>
+    </article>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="projects">
+    <div class="section-label mono">// 04 · analytics &amp; research</div>
+    <h2 class="section-title split" data-split>Selected work</h2>
+    <div class="filters mono" role="tablist">
+      <button class="active" data-filter="all">all</button>
+      <button data-filter="bi">bi &amp; dashboards</button>
+      <button data-filter="ml">machine learning</button>
+      <button data-filter="research">research</button>
+    </div>
+    <div class="proj-grid">
+
+      <article class="proj spotlight tilt" data-cat="ml research">
+        <div class="proj-viz"><svg data-chart="line" data-series="20,24,22,28,31,29,35,38,36,42,45,43,49" viewBox="0 0 300 120" preserveAspectRatio="none"></svg><span class="badge mono">🏆 1st place</span></div>
+        <div class="proj-body">
+          <div class="proj-meta mono">sep–dec 2024 · deep learning</div>
+          <h3>ESG Indices Price Prediction</h3>
+          <p>Hybrid CNN-LSTM-Transformer model forecasting ESG index prices, with connectivity studies across industries. 1.6% mean deviation. Won first place at the National Student Research Seminar.</p>
+          <div class="chips"><span>LSTM</span><span>CNN</span><span>Transformers</span><span>Python</span></div>
+          <a class="proj-link mono" href="https://www.linkedin.com/posts/skyline-university-college_researchseminar-skylineuniversitycollege-activity-7271913783101448192-jXRi/" target="_blank" rel="noopener">seminar ↗</a>
+        </div>
+      </article>
+
+      <article class="proj spotlight tilt" data-cat="ml research">
+        <div class="proj-viz"><svg data-chart="network" viewBox="0 0 300 120" preserveAspectRatio="none"></svg></div>
+        <div class="proj-body">
+          <div class="proj-meta mono">2024 · blockchain + ml</div>
+          <h3>ESG Reporting on Blockchain</h3>
+          <p>Blockchain app that makes company ESG reporting more transparent, with Random Forest predictions and a live stakeholder dashboard. Presented at the AGBRP Summit.</p>
+          <div class="chips"><span>Flask</span><span>Python</span><span>Random Forest</span><span>Blockchain</span></div>
+          <a class="proj-link mono" href="https://www.linkedin.com/posts/aryan-satwani-43a46a211_agbrp-fintech-esg-activity-7292203455073468419-nqZe" target="_blank" rel="noopener">summit ↗</a>
+        </div>
+      </article>
+
+      <article class="proj spotlight tilt" data-cat="ml research">
+        <div class="proj-viz"><svg data-chart="bar" data-series="4,6,3,8,12,5,7,9,14,6,10,11,7,15" viewBox="0 0 300 120" preserveAspectRatio="none"></svg><span class="badge mono">99% acc</span></div>
+        <div class="proj-body">
+          <div class="proj-meta mono">2023–24 · streamlit app</div>
+          <h3>Live Cricket Match &amp; Run Prediction</h3>
+          <p>End-to-end Streamlit app predicting first-innings totals and live match outcomes for any ODI with 99% accuracy. Published at IEEE IS'2024.</p>
+          <div class="chips"><span>Python</span><span>Streamlit</span><span>Pandas</span></div>
+          <a class="proj-link mono" href="https://ieeexplore.ieee.org/document/10705216" target="_blank" rel="noopener">ieee paper ↗</a>
+        </div>
+      </article>
+
+      <article class="proj spotlight tilt" data-cat="ml">
+        <div class="proj-viz"><svg data-chart="scatter" viewBox="0 0 300 120" preserveAspectRatio="none"></svg></div>
+        <div class="proj-body">
+          <div class="proj-meta mono">2024 · sports analytics</div>
+          <h3>Football Analytics &amp; Tournament Prediction</h3>
+          <p>Web-scraped player profiles to build Euro 2024 starting XIs, then used a Poisson model to predict the Euro 2024 and Copa América finalists correctly.</p>
+          <div class="chips"><span>Python</span><span>Streamlit</span><span>Poisson</span><span>Seaborn</span></div>
+        </div>
+      </article>
+
+      <article class="proj spotlight tilt" data-cat="bi">
+        <div class="proj-viz"><svg data-chart="treemap" viewBox="0 0 300 120" preserveAspectRatio="none"></svg><span class="badge mono">$470K+</span></div>
+        <div class="proj-body">
+          <div class="proj-meta mono">2025 · power bi</div>
+          <h3>Amazon Product Performance</h3>
+          <p>Power BI dashboard analysing $470K+ in sales, surfacing rating, discount and product-mix trends, top segments and review sentiment in the Indian market.</p>
+          <div class="chips"><span>Power BI</span><span>DAX</span><span>Pandas</span><span>Data modelling</span></div>
+        </div>
+      </article>
+
+      <article class="proj spotlight tilt" data-cat="bi">
+        <div class="proj-viz"><svg data-chart="area" data-series="2,3,3,5,4,8,12,10,18,26,22,30,28,36" viewBox="0 0 300 120" preserveAspectRatio="none"></svg></div>
+        <div class="proj-body">
+          <div class="proj-meta mono">2025 · power bi</div>
+          <h3>Netflix Stock vs Strategy</h3>
+          <p>Interactive dashboard correlating Netflix's stock price from 2002 to today with its key innovations and strategic shifts, using drill-downs and time-based trends.</p>
+          <div class="chips"><span>Power BI</span><span>Excel</span><span>Time series</span></div>
+        </div>
+      </article>
+
+      <article class="proj spotlight tilt" data-cat="bi">
+        <div class="proj-viz"><svg data-chart="donut" viewBox="0 0 300 120" preserveAspectRatio="none"></svg><span class="badge mono">876 comments</span></div>
+        <div class="proj-body">
+          <div class="proj-meta mono">nlp · sentiment</div>
+          <h3>Reddit Sentiment: Car Rental Brands</h3>
+          <p>VADER sentiment analysis of 876 Reddit comments across six UAE communities comparing brands. Udrive came out at 44.1% positive and 21.6% negative.</p>
+          <div class="chips"><span>Reddit API</span><span>VADER</span><span>Python</span></div>
+        </div>
+      </article>
+
+      <article class="proj spotlight tilt" data-cat="bi">
+        <div class="proj-viz"><svg data-chart="hbar" viewBox="0 0 300 120" preserveAspectRatio="none"></svg></div>
+        <div class="proj-body">
+          <div class="proj-meta mono">power bi · operations</div>
+          <h3>Supply Chain Analysis</h3>
+          <p>Dug into a company's supply chain data to find the root causes behind a rise in negative customer feedback.</p>
+          <div class="chips"><span>Power BI</span><span>Excel</span></div>
+        </div>
+      </article>
+
+      <article class="proj spotlight tilt" data-cat="ml research">
+        <div class="proj-viz"><svg data-chart="heat" viewBox="0 0 300 120" preserveAspectRatio="none"></svg><span class="badge mono">98.39% acc</span></div>
+        <div class="proj-body">
+          <div class="proj-meta mono">computer vision</div>
+          <h3>Diabetic Retinopathy Segmentation</h3>
+          <p>U-Net model that detects diabetic retinopathy lesions for stages 3–5 with 98.39% accuracy and precision.</p>
+          <div class="chips"><span>U-Net</span><span>OpenCV</span><span>scikit-learn</span></div>
+        </div>
+      </article>
+
+      <article class="proj spotlight tilt" data-cat="ml">
+        <div class="proj-viz"><svg data-chart="tokens" viewBox="0 0 300 120" preserveAspectRatio="none"></svg><span class="badge mono">BLEU 51.57</span></div>
+        <div class="proj-body">
+          <div class="proj-meta mono">nlp · llms</div>
+          <h3>Creative Storytelling with LLMs</h3>
+          <p>Compared GPT-2, BERT and T5 for generating full stories from a single prompt. GPT-2 led with a 51.57 BLEU score on the Guanaco dataset.</p>
+          <div class="chips"><span>Hugging Face</span><span>Flask</span><span>scikit-learn</span></div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="skills">
+    <div class="section-label mono">// 05 · stack</div>
+    <h2 class="section-title split" data-split>Tools of the trade</h2>
+    <div class="velocity" aria-hidden="true">
+      <div class="vel-row" data-dir="1"><div class="vel-track">Power BI ✦ Tableau ✦ Qlik ✦ SQL ✦ Python ✦ Excel ✦ DAX ✦ </div></div>
+      <div class="vel-row outline" data-dir="-1"><div class="vel-track">Pandas ✦ PyTorch ✦ TensorFlow ✦ Scikit-learn ✦ XGBoost ✦ Streamlit ✦ </div></div>
+    </div>
+    <div class="skill-grid">
+      <div class="skill-col spotlight reveal">
+        <h3 class="mono">bi_&amp;_viz</h3>
+        <div class="chips"><span>Power BI</span><span>Tableau</span><span>Qlik</span><span>Excel</span><span>Plotly</span><span>Matplotlib</span><span>Seaborn</span><span>Figma</span></div>
+      </div>
+      <div class="skill-col spotlight reveal">
+        <h3 class="mono">languages</h3>
+        <div class="chips"><span>Python</span><span>SQL</span><span>DAX</span><span>Java</span><span>Markdown</span></div>
+      </div>
+      <div class="skill-col spotlight reveal">
+        <h3 class="mono">ml_&amp;_ai</h3>
+        <div class="chips"><span>Pandas</span><span>NumPy</span><span>Scikit-learn</span><span>TensorFlow</span><span>PyTorch</span><span>XGBoost</span><span>SciPy</span><span>OpenCV</span><span>Hugging Face</span></div>
+      </div>
+      <div class="skill-col spotlight reveal">
+        <h3 class="mono">dev_tools</h3>
+        <div class="chips"><span>Streamlit</span><span>SQLAlchemy</span><span>Git</span><span>Jupyter</span><span>Colab</span><span>Postman</span><span>VS Code</span><span>Anaconda</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP + EDUCATION -->
+  <section id="life" class="lead">
+    <div class="section-label mono">// 06 · beyond work</div>
+    <h2 class="section-title split" data-split>Off the clock</h2>
+    <div class="hobbies">
+      <div class="hobby spotlight tilt reveal">
+        <div class="hobby-ico" aria-hidden="true">⚽</div>
+        <h3>Football &amp; fantasy</h3>
+        <p>Premier League and Champions League, watched through an xG lens. My FPL obsession turned into XPERT.</p>
+        <div class="mono hobby-stat">favourite_metric = "npxG"</div>
+      </div>
+      <div class="hobby spotlight tilt reveal">
+        <div class="hobby-ico" aria-hidden="true">🏎️</div>
+        <h3>Formula 1</h3>
+        <p>Race strategy, tyre deltas and fantasy grids. F1 Fantasy is a module in XPERT too.</p>
+        <div class="mono hobby-stat">lap_delta = −0.214s</div>
+      </div>
+      <div class="hobby spotlight tilt reveal">
+        <div class="hobby-ico" aria-hidden="true">🏏</div>
+        <h3>Cricket</h3>
+        <p>An ODI fan who built a model to call results mid-match. The paper ended up at IEEE.</p>
+        <div class="mono hobby-stat">win_prob = 0.99</div>
+      </div>
+      <div class="hobby spotlight tilt reveal">
+        <div class="hobby-ico" aria-hidden="true">✈️</div>
+        <h3>Travel</h3>
+        <p>Always planning the next trip, so I built Wayfarer Atlas to do the planning for me.</p>
+        <div class="mono hobby-stat">bucket_list.length++</div>
+      </div>
+    </div>
+
+    <h3 class="sub-title mono">leadership.csv</h3>
+    <div class="lead-grid">
+      <div class="lead-card spotlight reveal">
+        <div class="kpi-top mono">club_members</div>
+        <div class="kpi-val"><span class="count" data-to="4">0</span>×</div>
+        <div class="kpi-sub">grew a university club from ~45 to 190 active members</div>
+      </div>
+      <div class="lead-card spotlight reveal">
+        <div class="kpi-top mono">events_run</div>
+        <div class="kpi-val"><span class="count" data-to="20">0</span>+</div>
+        <div class="kpi-sub">events in one tenure, double the previous year</div>
+      </div>
+      <div class="lead-card spotlight reveal">
+        <div class="kpi-top mono">follower_growth</div>
+        <div class="kpi-val"><span class="count" data-to="50">0</span>%</div>
+        <div class="kpi-sub">from KPI and marketing dashboards (+75% on reels)</div>
+      </div>
+      <div class="lead-card spotlight reveal">
+        <div class="kpi-top mono">conference_attendees</div>
+        <div class="kpi-val"><span class="count" data-to="1000">0</span>+</div>
+        <div class="kpi-sub">logistics and marketing for CINS '23–'24 and IWISIST '24–'25</div>
+      </div>
+    </div>
+
+    <h3 class="sub-title mono">moments/ <span class="muted">· 8 files</span></h3>
+    <div class="gallery">
+      <figure class="g-item g-wide reveal"><img src="img/talk-agbrp.jpg" alt="Presenting ESG blockchain research at the 19th AGBRP Conference, JW Marriott Dubai" loading="lazy"><figcaption class="mono">agbrp_summit_2025.jpg<span>presenting ESG + blockchain research</span></figcaption></figure>
+      <figure class="g-item g-tall reveal"><img src="img/seminar-award.jpg" alt="Receiving first place at the National Student Research Seminar, Skyline University" loading="lazy"><figcaption class="mono">first_place.jpg<span>National Student Research Seminar</span></figcaption></figure>
+      <figure class="g-item reveal"><img src="img/cins-2023.jpg" alt="On stage at the CINS 2023 conference" loading="lazy"><figcaption class="mono">cins_2023.jpg<span>conference organising team</span></figcaption></figure>
+      <figure class="g-item reveal"><img src="img/talk-bits.jpg" alt="Speaking at BITS Pilani Dubai Campus" loading="lazy"><figcaption class="mono">bits_stage.jpg<span>hosting at BITS Pilani Dubai</span></figcaption></figure>
+      <figure class="g-item g-tall reveal"><img src="img/msd.jpg" alt="At the MSD office for the data analytics internship" loading="lazy"><figcaption class="mono">msd_gcc.jpg<span>data analytics internship</span></figcaption></figure>
+      <figure class="g-item reveal"><img src="img/lulu.jpg" alt="With the intern cohort at LuLu International Exchange" loading="lazy"><figcaption class="mono">lulu_exchange.jpg<span>CX analytics internship</span></figcaption></figure>
+      <figure class="g-item reveal"><img src="img/hackathon.jpg" alt="Certificates at the BharatTech hackathon" loading="lazy"><figcaption class="mono">hackathon.jpg<span>BharatTech Foundation event</span></figcaption></figure>
+      <figure class="g-item g-wide reveal"><img src="img/annual-day.jpg" alt="Club team at Annual Day 2024" loading="lazy"><figcaption class="mono">annual_day_2024.jpg<span>the club team: 45 → 190 members</span></figcaption></figure>
+    </div>
+
+    <div class="edu">
+      <div class="edu-item reveal">
+        <div class="mono tl-meta">2021 → 2025</div>
+        <h3>BITS Pilani, Dubai Campus</h3>
+        <p>B.E. Computer Science · CGPA 9.01 (Distinction)</p>
+      </div>
+      <div class="edu-item reveal">
+        <div class="mono tl-meta">2008 → 2021</div>
+        <h3>The Millennium School, Dubai</h3>
+        <p>High School Diploma (Science) · 95%</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="section-label mono">// 07 · contact</div>
+    <h2 class="contact-title"><span class="shiny">Let's find the signal</span><br>in your data.</h2>
+    <p class="contact-sub">Open to data analyst, BI and analytics roles. Feel free to reach out.</p>
+    <div class="contact-links">
+      <a class="btn btn-primary magnet" href="mailto:aryansatwani@gmail.com">aryansatwani@gmail.com</a>
+      <a class="btn btn-ghost magnet" href="https://www.linkedin.com/in/aryan-satwani" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn btn-ghost magnet" href="https://github.com/aryansatwani" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="mono">
+  <span>© <span id="yr"></span> Aryan Satwani</span>
+  <span class="muted">rendered with three.js · dubai, uae</span>
+</footer>
+
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+</script>
+<script type="module" src="scene.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
