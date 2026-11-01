@@ -270,6 +270,7 @@
       </div>
       <div class="build-viz" aria-hidden="true">
         <div class="pitch">
+          <div class="obj3d obj-ball" data-obj="ball"></div>
           <svg viewBox="0 0 200 280" class="pitch-lines"><rect x="6" y="6" width="188" height="268" rx="4"/><line x1="6" y1="140" x2="194" y2="140"/><circle cx="100" cy="140" r="26"/><rect x="50" y="6" width="100" height="40"/><rect x="50" y="234" width="100" height="40"/></svg>
           <div class="xp-player" style="--x:50%;--y:88%">GK<b>4.1</b></div>
           <div class="xp-player" style="--x:18%;--y:68%">DEF<b>5.3</b></div>
@@ -289,7 +290,7 @@
 
     <article class="build build-atlas spotlight reveal">
       <div class="build-viz" aria-hidden="true">
-        <svg class="globe-svg" viewBox="0 0 220 220">
+        <div class="obj3d obj-globe" data-obj="globe"><svg class="globe-svg" viewBox="0 0 220 220">
           <defs><radialGradient id="gg" cx="35%" cy="30%"><stop offset="0" stop-color="#a78bfa" stop-opacity=".35"/><stop offset="1" stop-color="#22d3ee" stop-opacity=".05"/></radialGradient></defs>
           <circle cx="110" cy="110" r="96" fill="url(#gg)" stroke="currentColor" stroke-opacity=".35"/>
           <g class="globe-meridians" fill="none" stroke="currentColor" stroke-opacity=".18">
@@ -298,7 +299,7 @@
           </g>
           <path class="route" d="M70 120 Q 100 60 150 80 T 160 150" fill="none"/>
           <circle class="pin" cx="70" cy="120" r="4"/><circle class="pin" cx="150" cy="80" r="4"/><circle class="pin" cx="160" cy="150" r="4"/>
-        </svg>
+        </svg></div>
         <div class="xp-tag mono">dubai → istanbul → tbilisi</div>
       </div>
       <div class="build-copy">
@@ -473,7 +474,7 @@
         </ul>
       </div>
       <div class="cred spotlight reveal">
-        <h3 class="mono">honours_&amp;_publications</h3>
+        <div class="obj3d obj-trophy" data-obj="trophy" aria-hidden="true"></div><h3 class="mono">honours_&amp;_publications</h3>
         <ul>
           <li>1st Place, National Student Research Seminar<span>esg prediction model · 2024</span></li>
           <li>Roundtable Speaker, AGBRP Summit '25<span>esg reporting on blockchain</span></li>
@@ -675,6 +676,7 @@
 } }
 </script>
 <script type="module" src="scene.js"></script>
+<script type="module" src="objects3d.js"></script>
 <script src="main.js"></script>
 </body>
 </html>
