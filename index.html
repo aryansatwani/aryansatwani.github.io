@@ -240,7 +240,7 @@
         <div class="tl-node"></div>
         <div class="tl-meta mono">sep 2025 → present</div>
         <div class="tl-card spotlight">
-          <h3>Associate Data Analyst <span class="at">@ Udrive Rent-A-Car</span></h3>
+          <div class="tl-head"><img class="co-logo" src="img/logos/udrive.png" alt="Udrive logo" width="48" height="48"><h3>Associate Data Analyst <span class="at">@ Udrive Rent-A-Car</span></h3></div>
           <ul>
             <li>Drove a <b>30% fleet revenue improvement</b> over 12 months through data-driven optimisation of fleet performance, placement and vehicle selection.</li>
             <li>Analysed registration funnels, verification workflows and app performance with Marketing, Product and Tech, improving registration-to-trip conversion by <b>12%</b>.</li>
@@ -255,7 +255,7 @@
         <div class="tl-node"></div>
         <div class="tl-meta mono">jan 2025 → jul 2025</div>
         <div class="tl-card spotlight">
-          <h3>Data Analytics Intern <span class="at">@ MSD GCC</span></h3>
+          <div class="tl-head"><img class="co-logo" src="img/logos/msd.png" alt="MSD logo" width="48" height="48"><h3>Data Analytics Intern <span class="at">@ MSD GCC</span></h3></div>
           <ul>
             <li>Developed <b>8+ dashboards</b> to optimise sales performance and forecasting across <b>6 GCC countries</b>.</li>
             <li>Automated sales data workflows, reducing reporting time by <b>30%</b>.</li>
@@ -269,7 +269,7 @@
         <div class="tl-node"></div>
         <div class="tl-meta mono">jun 2023 → aug 2023</div>
         <div class="tl-card spotlight">
-          <h3>Customer Experience Analyst Intern <span class="at">@ LuLu International Exchange</span></h3>
+          <div class="tl-head"><img class="co-logo" src="img/logos/lulu.png" alt="LuLu International Exchange logo" width="48" height="48"><h3>Customer Experience Analyst Intern <span class="at">@ LuLu International Exchange</span></h3></div>
           <ul>
             <li>Mapped user journeys across all <b>17 Dubai branches</b> using Google reviews and face-to-face surveys.</li>
             <li>Built dashboards identifying <b>5+ CX gaps</b> that shaped product and ops improvements for the LuLu Money app.</li>
@@ -282,7 +282,7 @@
         <div class="tl-node"></div>
         <div class="tl-meta mono">aug 2021 → sep 2021</div>
         <div class="tl-card spotlight">
-          <h3>Social Media Analytics Intern <span class="at">@ CoverCompared</span></h3>
+          <div class="tl-head"><span class="co-logo co-mono" aria-hidden="true">CC</span><h3>Social Media Analytics Intern <span class="at">@ CoverCompared</span></h3></div>
           <ul>
             <li>Aggregated and analysed social media data to improve engagement and click-through rates across channels.</li>
             <li>Ran A/B tests on content strategy, boosting engagement by <b>20%</b>.</li>
@@ -581,12 +581,12 @@
     <div class="edu">
       <div class="edu-item reveal">
         <div class="mono tl-meta">2021 → 2025</div>
-        <h3>BITS Pilani, Dubai Campus</h3>
+        <div class="tl-head"><img class="co-logo" src="img/logos/bits.png" alt="BITS Pilani logo" width="48" height="48"><h3>BITS Pilani, Dubai Campus</h3></div>
         <p>B.E. Computer Science · CGPA 9.01 (Distinction)</p>
       </div>
       <div class="edu-item reveal">
         <div class="mono tl-meta">2008 → 2021</div>
-        <h3>The Millennium School, Dubai</h3>
+        <div class="tl-head"><span class="co-logo co-mono" aria-hidden="true">TMS</span><h3>The Millennium School, Dubai</h3></div>
         <p>High School Diploma (Science) · 95%</p>
       </div>
     </div>
@@ -613,9 +613,13 @@
 </footer>
 
 <script type="importmap">
-{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
 </script>
 <script type="module" src="scene.js"></script>
+<script type="module" src="avatar3d.js"></script>
 <script src="main.js"></script>
 </body>
 </html>
