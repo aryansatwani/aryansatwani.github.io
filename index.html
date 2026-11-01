@@ -17,7 +17,7 @@
 
 <div id="loader" aria-hidden="true">
   <div class="loader-inner">
-    <div class="loader-avatar avatar-slot"></div>
+    <img class="loader-avatar" src="img/aryan-face.jpg" alt="" width="96" height="96">
     <div class="loader-hi">Hi, welcome to my portfolio</div>
     <div class="mono loader-q">&gt; SELECT * FROM aryan_satwani;</div>
     <div class="loader-bar"><span></span></div>
@@ -26,62 +26,6 @@
   </div>
 </div>
 
-<template id="avatarTpl">
-<svg class="avatar" viewBox="0 0 400 440" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9a07c"/><stop offset="1" stop-color="#c0835f"/></linearGradient>
-    <linearGradient id="hair" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a2a22"/><stop offset="1" stop-color="#1c1411"/></linearGradient>
-    <linearGradient id="blazer" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2557b8"/><stop offset="1" stop-color="#173a80"/></linearGradient>
-    <pattern id="check" width="7" height="7" patternUnits="userSpaceOnUse"><rect width="7" height="7" fill="url(#blazer)"/><path d="M0 3.5H7M3.5 0V7" stroke="#0e2a63" stroke-width="1.2" opacity=".55"/></pattern>
-    <radialGradient id="blush" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#e0786a" stop-opacity=".45"/><stop offset="1" stop-color="#e0786a" stop-opacity="0"/></radialGradient>
-  </defs>
-  <!-- body -->
-  <path d="M60 440 C64 380 110 352 170 342 L230 342 C290 352 336 380 340 440 Z" fill="url(#check)"/>
-  <path d="M170 342 L200 420 L230 342 Z" fill="#f4f4f2"/>
-  <path d="M170 342 L186 384 L162 366 Z M230 342 L214 384 L238 366 Z" fill="#e3e3df"/>
-  <path d="M150 348 L200 440 L176 440 L132 360 Z M250 348 L200 440 L224 440 L268 360 Z" fill="#1a4596"/>
-  <!-- neck -->
-  <path d="M172 300 L172 346 Q200 362 228 346 L228 300 Z" fill="#b97a57"/>
-  <!-- ears -->
-  <ellipse cx="111" cy="214" rx="15" ry="24" fill="#c98a65"/>
-  <ellipse cx="289" cy="214" rx="15" ry="24" fill="#c98a65"/>
-  <!-- head -->
-  <path d="M112 196 C112 128 150 96 200 96 C250 96 288 128 288 196 C288 262 256 318 200 322 C144 318 112 262 112 196 Z" fill="url(#skin)"/>
-  <!-- stubble -->
-  <path d="M142 262 C156 306 180 320 200 320 C220 320 244 306 258 262 C246 290 226 300 200 300 C174 300 154 290 142 262 Z" fill="#3a2a22" opacity=".22"/>
-  <!-- hair -->
-  <path class="hair" d="M106 206 C96 150 112 104 150 84 C170 52 214 40 252 56 C292 66 312 104 300 150 C298 172 296 190 292 206 C290 176 282 156 268 142 C262 150 240 152 222 144 C200 152 166 148 150 138 C130 150 116 174 112 204 Z" fill="url(#hair)"/>
-  <path d="M160 82 C186 58 236 54 266 74 C238 66 204 70 178 88 Z" fill="#5a4234" opacity=".7"/>
-  <!-- brows -->
-  <path d="M138 172 C150 160 170 158 186 166 L184 174 C168 170 152 172 140 178 Z" fill="#241913"/>
-  <path d="M262 172 C250 160 230 158 214 166 L216 174 C232 170 248 172 260 178 Z" fill="#241913"/>
-  <!-- eyes -->
-  <g class="eye eye-l"><ellipse cx="162" cy="198" rx="17" ry="12" fill="#fff"/><g class="iris"><circle cx="162" cy="198" r="8.5" fill="#4a2c1d"/><circle cx="162" cy="198" r="4" fill="#120b08"/><circle cx="165" cy="195" r="2.2" fill="#fff"/></g></g>
-  <g class="eye eye-r"><ellipse cx="238" cy="198" rx="17" ry="12" fill="#fff"/><g class="iris"><circle cx="238" cy="198" r="8.5" fill="#4a2c1d"/><circle cx="238" cy="198" r="4" fill="#120b08"/><circle cx="241" cy="195" r="2.2" fill="#fff"/></g></g>
-  <!-- nose -->
-  <path d="M200 204 C196 226 188 240 192 246 C196 250 206 250 210 246" fill="none" stroke="#a5694a" stroke-width="3.5" stroke-linecap="round"/>
-  <!-- cheeks -->
-  <ellipse cx="146" cy="246" rx="20" ry="12" fill="url(#blush)"/>
-  <ellipse cx="254" cy="246" rx="20" ry="12" fill="url(#blush)"/>
-  <!-- smile -->
-  <path d="M158 262 Q200 314 242 262 Q200 276 158 262 Z" fill="#6b2a22"/>
-  <path d="M164 264 Q200 274 236 264 Q234 274 228 278 Q200 284 172 278 Q166 274 164 264 Z" fill="#fbf6ea"/>
-  <path d="M158 262 Q200 276 242 262" fill="none" stroke="#8a4a36" stroke-width="2.5" stroke-linecap="round"/>
-  <!-- waving hand -->
-  <g class="wave">
-    <path d="M318 440 C318 400 322 372 330 352 L360 360 C356 384 352 410 352 440 Z" fill="url(#check)"/>
-    <rect x="326" y="342" width="38" height="14" rx="5" fill="#f4f4f2" transform="rotate(10 345 349)"/>
-    <g fill="#d39a76">
-      <rect x="326" y="298" width="42" height="50" rx="16"/>
-      <rect x="326" y="262" width="10" height="44" rx="5"/>
-      <rect x="338" y="254" width="10" height="50" rx="5"/>
-      <rect x="350" y="258" width="10" height="46" rx="5"/>
-      <rect x="361" y="270" width="9" height="36" rx="4.5"/>
-      <rect x="306" y="306" width="30" height="11" rx="5.5" transform="rotate(-35 320 312)"/>
-    </g>
-  </g>
-</svg>
-</template>
 
 <canvas id="scene" aria-hidden="true"></canvas>
 <canvas id="sparks" aria-hidden="true"></canvas>
@@ -121,7 +65,7 @@
       <div class="orbit o1"><span class="mono">SQL</span><span class="mono">Python</span><span class="mono">Power BI</span></div>
       <div class="orbit o2"><span class="mono">Tableau</span><span class="mono">ML</span><span class="mono">DAX</span><span class="mono">Qlik</span></div>
       <div class="avatar-glow"></div>
-      <div class="avatar-slot"></div>
+      <div class="face-badge tilt"><img src="img/aryan-face.jpg" alt="Aryan Satwani" width="150" height="150"><span class="face-ring"></span></div>
       <div class="float-chip c1 mono">▲ 30% revenue</div>
       <div class="float-chip c2 mono">r² = 0.94</div>
       <div class="float-chip c3 mono">p &lt; 0.05 ✓</div>
@@ -240,7 +184,11 @@
         <div class="tl-node"></div>
         <div class="tl-meta mono">sep 2025 → present</div>
         <div class="tl-card spotlight">
-          <div class="tl-head"><img class="co-logo" src="img/logos/udrive.png" alt="Udrive logo" width="48" height="48"><h3>Associate Data Analyst <span class="at">@ Udrive Rent-A-Car</span></h3></div>
+          <div class="tl-head"><img class="co-logo" src="img/logos/udrive.png" alt="Udrive logo" width="48" height="48"><h3>Udrive Rent-A-Car <span class="at">· Dubai</span></h3></div>
+          <div class="roles mono">
+            <div class="role now"><span class="role-dot"></span><b>Associate Data Analyst</b><em>jun 2026 → present</em></div>
+            <div class="role"><span class="role-dot"></span><b>Junior Data Analyst</b><em>sep 2025 → may 2026</em></div>
+          </div>
           <ul>
             <li>Drove a <b>30% fleet revenue improvement</b> over 12 months through data-driven optimisation of fleet performance, placement and vehicle selection.</li>
             <li>Analysed registration funnels, verification workflows and app performance with Marketing, Product and Tech, improving registration-to-trip conversion by <b>12%</b>.</li>
@@ -259,9 +207,11 @@
           <ul>
             <li>Developed <b>8+ dashboards</b> to optimise sales performance and forecasting across <b>6 GCC countries</b>.</li>
             <li>Automated sales data workflows, reducing reporting time by <b>30%</b>.</li>
-            <li>Gathered requirements with regional teams, managed reporting backlogs and delivered data products supporting sales strategy.</li>
+            <li>Built front-end and back-end logic for Qlik Sense dashboards tracking sales, market performance and forecasts.</li>
+            <li>Helped migrate reporting to Power BI by rebuilding existing Qlik dashboards, and maintained the Excel macros behind sales reporting.</li>
+            <li>Gathered requirements with regional teams, managed reporting backlogs, and joined quarterly forecast and business-review meetings.</li>
           </ul>
-          <div class="chips"><span>Qlik</span><span>SQL</span><span>Power BI</span><span>Excel</span></div>
+          <div class="chips"><span>Qlik Sense</span><span>SQL</span><span>Power BI</span><span>Excel VBA</span></div>
         </div>
       </article>
 
@@ -282,10 +232,11 @@
         <div class="tl-node"></div>
         <div class="tl-meta mono">aug 2021 → sep 2021</div>
         <div class="tl-card spotlight">
-          <div class="tl-head"><span class="co-logo co-mono" aria-hidden="true">CC</span><h3>Social Media Analytics Intern <span class="at">@ CoverCompared</span></h3></div>
+          <div class="tl-head"><img class="co-logo" src="img/logos/covercompared.png" alt="CoverCompared logo" width="48" height="48"><h3>Digital Marketing Intern <span class="at">@ CoverCompared</span></h3></div>
           <ul>
             <li>Aggregated and analysed social media data to improve engagement and click-through rates across channels.</li>
             <li>Ran A/B tests on content strategy, boosting engagement by <b>20%</b>.</li>
+            <li>Learned how crypto-focused companies operate and promoted the company's projects across social platforms.</li>
           </ul>
           <div class="chips"><span>Excel</span><span>Power BI</span><span>A/B testing</span></div>
         </div>
@@ -509,6 +460,37 @@
         <div class="chips"><span>Streamlit</span><span>SQLAlchemy</span><span>Git</span><span>Jupyter</span><span>Colab</span><span>Postman</span><span>VS Code</span><span>Anaconda</span></div>
       </div>
     </div>
+
+    <h3 class="sub-title mono">credentials/</h3>
+    <div class="creds">
+      <div class="cred spotlight reveal">
+        <h3 class="mono">certifications</h3>
+        <ul>
+          <li>Microsoft Certified: Azure AI Fundamentals<span>microsoft</span></li>
+          <li>ParseHub Web Scraping (Beginner)<span>parsehub</span></li>
+          <li>French Language A1 + Certificate of Excellence<span>younity · livelearner</span></li>
+          <li>Introduction to IoT<span>course</span></li>
+        </ul>
+      </div>
+      <div class="cred spotlight reveal">
+        <h3 class="mono">honours_&amp;_publications</h3>
+        <ul>
+          <li>1st Place, National Student Research Seminar<span>esg prediction model · 2024</span></li>
+          <li>Roundtable Speaker, AGBRP Summit '25<span>esg reporting on blockchain</span></li>
+          <li>Live Cricket Predictions for Runs and Win Using Machine Learning<span>ieee is'2024 · publication</span></li>
+        </ul>
+      </div>
+      <div class="cred spotlight reveal">
+        <h3 class="mono">languages</h3>
+        <ul>
+          <li class="lang">English<i style="--w:100%"></i><em>native</em></li>
+          <li class="lang">Hindi<i style="--w:100%"></i><em>native</em></li>
+          <li class="lang">Sindhi<i style="--w:100%"></i><em>native</em></li>
+          <li class="lang">French<i style="--w:30%"></i><em>A1</em></li>
+          <li class="lang">Arabic<i style="--w:25%"></i><em>basic</em></li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <!-- LEADERSHIP + EDUCATION -->
@@ -540,6 +522,80 @@
         <p>Always planning the next trip, so I built Wayfarer Atlas to do the planning for me.</p>
         <div class="mono hobby-stat">bucket_list.length++</div>
       </div>
+    </div>
+
+    <h3 class="sub-title mono">extracurriculars/ <span class="muted">· university clubs &amp; communities</span></h3>
+    <div class="clubs">
+      <article class="club spotlight reveal">
+        <div class="tl-head"><img class="co-logo" src="img/logos/microsoft.png" alt="Microsoft logo" width="48" height="48"><div><h3>Microsoft Tech Club</h3><span class="club-meta mono">BITS Pilani Dubai · 3 years</span></div></div>
+        <div class="roles mono">
+          <div class="role top"><span class="role-dot"></span><b>Chair</b><em>may 2024 → jul 2025</em></div>
+          <div class="role"><span class="role-dot"></span><b>Vice Chair</b><em>jul 2023 → may 2024</em></div>
+          <div class="role"><span class="role-dot"></span><b>Treasurer</b><em>aug 2022 → jun 2023</em></div>
+        </div>
+        <ul>
+          <li>Led a <b>40-person team</b> across tech, marketing, design and logistics, with sprint planning and weekly syncs.</li>
+          <li><b>200% YoY growth</b> in membership, event participation and cross-university engagement, tracked on Power BI KPI dashboards.</li>
+          <li>Owned delivery of a club ERP system, a registration platform and website integrations.</li>
+          <li>Organised the UAE's largest inter-university tech research competition: <b>118+ participants from 13+ institutions</b>.</li>
+          <li>As Vice Chair, ran logistics and marketing for the CINS and IWISIST international conferences, doubled the number of events, and lifted followers by 25% and reels traction by 75%.</li>
+          <li>As Treasurer, managed budgets and vendor negotiations for 15+ events, using automated spend trackers.</li>
+        </ul>
+      </article>
+
+      <article class="club spotlight reveal">
+        <div class="tl-head"><img class="co-logo" src="img/logos/bits.png" alt="BITS Pilani logo" width="48" height="48"><div><h3>CIIED</h3><span class="club-meta mono">Centre for Innovation, Incubation &amp; Entrepreneurship · 1 yr 10 mo</span></div></div>
+        <div class="roles mono">
+          <div class="role top"><span class="role-dot"></span><b>General Secretary</b><em>jul 2023 → may 2024</em></div>
+          <div class="role"><span class="role-dot"></span><b>Marketing Executive</b><em>aug 2022 → jun 2023</em></div>
+        </div>
+        <ul>
+          <li>Led the marketing and operations teams, and built a dashboard to track deliverables across the team.</li>
+          <li>Grew CIIE's social following and event attendance through content strategy, campaigns, posters and videos.</li>
+        </ul>
+      </article>
+
+      <article class="club spotlight reveal">
+        <div class="tl-head"><img class="co-logo" src="img/logos/gdsc.png" alt="Google Developer Student Clubs logo" width="48" height="48"><div><h3>Google Developer Student Club</h3><span class="club-meta mono">BITS Pilani Dubai</span></div></div>
+        <div class="roles mono">
+          <div class="role top"><span class="role-dot"></span><b>Logistics Lead &amp; Marketing Manager</b><em>sep 2022 → jun 2023</em></div>
+        </div>
+        <ul>
+          <li>Kept the events sheet, ER diagrams and monthly insight reports, and tracked finances to improve future events.</li>
+          <li>Ran social content and poster design (including the Plotly workshop), participant comms, attendance and certificates.</li>
+        </ul>
+      </article>
+
+      <article class="club spotlight reveal">
+        <div class="tl-head"><img class="co-logo" src="img/logos/bits.png" alt="BITS Pilani logo" width="48" height="48"><div><h3>BITS Tech Fest 2024</h3><span class="club-meta mono">BITS Pilani Dubai</span></div></div>
+        <div class="roles mono">
+          <div class="role top"><span class="role-dot"></span><b>Co-Lead</b><em>mar 2024 → may 2024</em></div>
+        </div>
+        <ul>
+          <li>Helped lead every participating team and club, streamlined communication between organisers, participants and the core committee, and owned the project tasks.</li>
+        </ul>
+      </article>
+
+      <article class="club spotlight reveal">
+        <div class="tl-head"><span class="co-logo co-mono" aria-hidden="true">AN</span><div><h3>Al Nasr Cultural &amp; Sport Club</h3><span class="club-meta mono">Dubai</span></div></div>
+        <div class="roles mono">
+          <div class="role top"><span class="role-dot"></span><b>Community Ambassador</b><em>mar 2024 → jun 2024</em></div>
+        </div>
+        <ul>
+          <li>Launched a fan-engagement account: <b>1K+ engagements and 200+ shares</b> in 3 months from reels and match highlights.</li>
+          <li>Tuned reach using performance metrics, trending audio and hashtags, and played in community matches to build grassroots support.</li>
+        </ul>
+      </article>
+
+      <article class="club spotlight reveal">
+        <div class="tl-head"><img class="co-logo" src="img/logos/millennium.png" alt="The Millennium School logo" width="48" height="48"><div><h3>The Millennium School</h3><span class="club-meta mono">Dubai · school years</span></div></div>
+        <div class="roles mono">
+          <div class="role top"><span class="role-dot"></span><b>School Prefect</b><em>school leadership</em></div>
+        </div>
+        <ul>
+          <li>Trusted with student leadership and helping run school life as a prefect.</li>
+        </ul>
+      </article>
     </div>
 
     <h3 class="sub-title mono">leadership.csv</h3>
@@ -586,8 +642,8 @@
       </div>
       <div class="edu-item reveal">
         <div class="mono tl-meta">2008 → 2021</div>
-        <div class="tl-head"><span class="co-logo co-mono" aria-hidden="true">TMS</span><h3>The Millennium School, Dubai</h3></div>
-        <p>High School Diploma (Science) · 95%</p>
+        <div class="tl-head"><img class="co-logo" src="img/logos/millennium.png" alt="The Millennium School logo" width="48" height="48"><h3>The Millennium School, Dubai</h3></div>
+        <p>High School Diploma (Physics, Chemistry, Maths, Economics) · 95% · School Prefect</p>
       </div>
     </div>
   </section>
@@ -619,7 +675,6 @@
 } }
 </script>
 <script type="module" src="scene.js"></script>
-<script type="module" src="avatar3d.js"></script>
 <script src="main.js"></script>
 </body>
 </html>

@@ -7,20 +7,10 @@
 
   $('#yr').textContent = new Date().getFullYear();
 
-  /* ---------- avatar (Memoji-style, eyes follow cursor) ---------- */
-  const tpl = $('#avatarTpl').innerHTML;
-  $$('.avatar-slot').forEach((slot, n) => {
-    // unique ids per copy so gradients survive when the loader copy is hidden
-    slot.innerHTML = tpl.replace(/id="(\w+)"/g, `id="$1-${n}"`).replace(/url\(#(\w+)\)/g, `url(#$1-${n})`);
-  });
-  const irises = $$('.avatar .iris');
-  let look = { x: 0, y: 0 };
+  /* ---------- cursor glow ---------- */
   addEventListener('pointermove', e => {
-    look.x = (e.clientX / innerWidth - .5) * 2;
-    look.y = (e.clientY / innerHeight - .5) * 2;
     document.body.style.setProperty('--mx', e.clientX + 'px');
     document.body.style.setProperty('--my', e.clientY + 'px');
-    irises.forEach(i => i.style.transform = `translate(${look.x * 6}px, ${look.y * 4}px)`);
   }, { passive: true });
 
   /* ---------- loader ---------- */
